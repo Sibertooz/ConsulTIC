@@ -1,0 +1,62 @@
+<template>
+  <lightning-layout vertical-align="center">
+    <lightning-layout-item size="2" class="slds-text-align_left">
+      <lightning-button-icon
+        size={buttonSize}
+        class="left-button-icon slds-var-p-right_x-small"
+        icon-name="utility:jump_to_left"
+        onclick={handleGoToFirst}
+        disabled={isFirstPage}
+      >
+        <label>Previous</label>
+      </lightning-button-icon>
+      <lightning-button-icon
+        size={buttonSize}
+        class="left-button-icon"
+        icon-name="utility:chevronleft"
+        onclick={handlePrevious}
+        disabled={isFirstPage}
+      >
+        <label>Previous</label>
+      </lightning-button-icon>
+    </lightning-layout-item>
+    <lightning-layout-item size="8" class="slds-text-align_center">
+      {pageCounterInfo}
+      <lightning-button-menu
+        class="slds-p-left_xx-small"
+        alternative-text="Show menu"
+        icon-size="xx-small"
+        variant="border-filled"
+        onselect={handleItemsOnPageChange}
+        menu-alignment="auto"
+      >
+        <lightning-menu-item label="15" value="15"></lightning-menu-item>
+        <lightning-menu-item label="25" value="25"></lightning-menu-item>
+        <lightning-menu-item label="35" value="35"></lightning-menu-item>
+        <lightning-menu-item label="45" value="45"></lightning-menu-item>
+        <lightning-menu-item label="55" value="55"></lightning-menu-item>
+        <lightning-menu-item label="65" value="65"></lightning-menu-item>
+      </lightning-button-menu>
+    </lightning-layout-item>
+    <lightning-layout-item size="2" class="slds-text-align_right">
+      <lightning-button-icon
+        size={buttonSize}
+        class="right-button-icon"
+        icon-name="utility:chevronright"
+        onclick={handleNext}
+        disabled={isLastPage}
+      >
+        <label>Next</label>
+      </lightning-button-icon>
+      <lightning-button-icon
+        size={buttonSize}
+        class="right-button-icon slds-var-p-left_x-small"
+        icon-name="utility:jump_to_right"
+        onclick={handleGoToLast}
+        disabled={isLastPage}
+      >
+        <label>Next</label>
+      </lightning-button-icon>
+    </lightning-layout-item>
+  </lightning-layout>
+</template>

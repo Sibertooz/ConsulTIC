@@ -1,7 +1,69 @@
 <template>
     <lightning-card title="Accounts" icon-name="standard:account" variant="narrow">
-        <lightning-button label="New" slot="actions"></lightning-button>
-        <p class="slds-p-horizontal_small">Card Body (custom component)</p>
-        <div slot="footer"></div>
+        <lightning-button label="New" slot="actions" onclick={handleNewAccount}></lightning-button>
+        <div class="slds-p-horizontal_small">
+            <div class="slds-clearfix">
+                <div class="slds-float_right">
+                    <div class="slds-grid slds-m-bottom_medium">
+                        <div class="slds-col slds-m-right_medium">
+                            <lightning-combobox
+                            options={typeOptions}
+                            placeholder="Filter by type"
+                            dropdown-alignment="right"
+                            onchange={handleChangeType}
+                            ></lightning-combobox>
+                        </div>
+                        <div class="slds-col">
+                            <lightning-combobox
+                            options={industryOptions}
+                            placeholder="Filter by industry"
+                            dropdown-alignment="right"
+                            onchange={handleChangeIndustry}
+                            ></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-float_left">
+                    <lightning-input
+                    placeholder="Search by name"
+                    onchange={handleSearch}
+                    ></lightning-input>
+                </div>
+            </div>
+            <div>
+                <lightning-datatable
+                    key-field="Id"
+                    data={records}
+                    columns={columns}
+                    hide-checkbox-column
+                ></lightning-datatable>
+                <template if:true={showNoDataMessage}>
+                    <input
+                        type="text"
+                        class="no-data-message"
+                        value="No available accounts"
+                        disabled
+                    />
+                </template>
+            </div>
+        </div>
+        <div slot="footer">
+            <c-paginator
+                page-number={currentPage}
+                page-size={pageSize}
+                total-item-count={totalRecords}
+                items-on-page={pageSize}
+                onprevious={handlePrevious}
+                onnext={handleNext}
+                ongotofirst={handleFirst}
+                ongotolast={handleLast}
+                onitemsonpagechanged={handlePageSizeChange}
+            ></c-paginator>
+        </div>
+        <lightning-spinner
+            if:true={showSpinner}
+            alternative-text="Loading..."
+            size="medium"
+        ></lightning-spinner>
     </lightning-card>
 </template>

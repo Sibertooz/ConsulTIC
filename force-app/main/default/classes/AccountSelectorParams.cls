@@ -1,12 +1,12 @@
 public class AccountSelectorParams {
     @AuraEnabled
-    public Integer recordLimit;
+    public Integer recordLimit { get; set; }
     @AuraEnabled
-    public Integer recordOffset;
+    public Integer recordOffset { get; set; }
     @AuraEnabled
-    public String filterType;
+    public String filterType { get; set; }
     @AuraEnabled
-    public String filterIndustry;
+    public String filterIndustry { get; set; }
     @AuraEnabled
-    public String searchValue;
+    public String searchTerm { get; set; }
 }
