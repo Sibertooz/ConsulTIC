@@ -162,6 +162,7 @@ export default class AccountsListView extends LightningElement {
 
         if (searchTerm.length === 0) {
             this.searchTerm = null;
+            this.currentPage = 1;
             input.setCustomValidity("");
             input.reportValidity();
 
@@ -173,6 +174,7 @@ export default class AccountsListView extends LightningElement {
             input.setCustomValidity("");
             input.reportValidity();
             this.searchTerm = searchTerm;
+            this.currentPage = 1;
 
             debounceSearch();
         }
