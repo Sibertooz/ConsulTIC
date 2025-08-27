@@ -25,7 +25,9 @@
                 </div>
                 <div class="slds-float_left">
                     <lightning-input
+                    lwc:ref="search"
                     placeholder="Search by name"
+                    min-lengt="3"
                     onchange={handleSearch}
                     ></lightning-input>
                 </div>
@@ -58,6 +60,7 @@
                 ongotofirst={handleFirst}
                 ongotolast={handleLast}
                 onitemsonpagechanged={handlePageSizeChange}
+                ongotopage={handleGoToPage}
             ></c-paginator>
         </div>
         <lightning-spinner

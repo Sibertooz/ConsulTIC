@@ -21,22 +21,37 @@
       </lightning-button-icon>
     </lightning-layout-item>
     <lightning-layout-item size="8" class="slds-text-align_center">
-      {pageCounterInfo}
-      <lightning-button-menu
-        class="slds-p-left_xx-small"
-        alternative-text="Show menu"
-        icon-size="xx-small"
-        variant="border-filled"
-        onselect={handleItemsOnPageChange}
-        menu-alignment="auto"
-      >
-        <lightning-menu-item label="15" value="15"></lightning-menu-item>
-        <lightning-menu-item label="25" value="25"></lightning-menu-item>
-        <lightning-menu-item label="35" value="35"></lightning-menu-item>
-        <lightning-menu-item label="45" value="45"></lightning-menu-item>
-        <lightning-menu-item label="55" value="55"></lightning-menu-item>
-        <lightning-menu-item label="65" value="65"></lightning-menu-item>
-      </lightning-button-menu>
+      <div class="slds-m-vertical_small">
+        <lightning-button-group>
+          <template for:each={paginationButtons} for:item="button">
+            <lightning-button
+              key={button.label}
+              label={button.label}
+              variant={button.variant}
+              onclick={handleButtonPageClick}
+              data-index={button.index}
+              ></lightning-button>
+          </template>
+        </lightning-button-group>
+      </div>
+      <div>
+        {pageCounterInfo}
+        <lightning-button-menu
+          class="slds-p-left_xx-small"
+          alternative-text="Show menu"
+          icon-size="xx-small"
+          variant="border-filled"
+          onselect={handleItemsOnPageChange}
+          menu-alignment="auto"
+        >
+          <lightning-menu-item label="15" value="15"></lightning-menu-item>
+          <lightning-menu-item label="25" value="25"></lightning-menu-item>
+          <lightning-menu-item label="35" value="35"></lightning-menu-item>
+          <lightning-menu-item label="45" value="45"></lightning-menu-item>
+          <lightning-menu-item label="55" value="55"></lightning-menu-item>
+          <lightning-menu-item label="65" value="65"></lightning-menu-item>
+        </lightning-button-menu>
+      </div>
     </lightning-layout-item>
     <lightning-layout-item size="2" class="slds-text-align_right">
       <lightning-button-icon

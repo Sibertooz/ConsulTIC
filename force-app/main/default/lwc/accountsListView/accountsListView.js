@@ -4,6 +4,8 @@ import { getPicklistValues, getObjectInfo } from 'lightning/uiObjectInfoApi';
 
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
+import CreateAccountModal from "c/createAccountModal";
+
 import getAccountsByParams from "@salesforce/apex/AccountsListViewController.getAccountsByParams";
 import searchAccountsByName from "@salesforce/apex/AccountsListViewController.searchAccountsByName";
 
@@ -131,6 +133,11 @@ export default class AccountsListView extends LightningElement {
         this._findAccounts();
     }
 
+    handleGoToPage(event) {
+        this.currentPage = event.detail.pageNumber;
+        this._findAccounts();
+    }
+
     handleChangeType(event) {
         this.selectedType = event.detail.value === CONSTANTS.ALL_VALUE ? null : event.detail.value;
         this.currentPage = 1;
@@ -145,10 +152,50 @@ export default class AccountsListView extends LightningElement {
 
     handleSearch(event) {
         const searchTerm = event.detail.value;
-        console.log('searchTerm', searchTerm);
+        const input = this.refs.search;
+
+        let self = this;
+        const func = () => {
+            self._findAccounts();
+        };
+        const debounceSearch = debounce(func, 250);
+
+        if (searchTerm.length === 0) {
+            this.searchTerm = null;
+            input.setCustomValidity("");
+            input.reportValidity();
+
+            debounceSearch();
+        } else if (searchTerm.length < 3) {
+            this.searchTerm = null;
+            input.setCustomValidity("Input must be at least 3 characters long.");
+        } else {
+            input.setCustomValidity("");
+            input.reportValidity();
+            this.searchTerm = searchTerm;
+
+            debounceSearch();
+        }
     }
 
-    handleNewAccount() {}
+    async handleNewAccount() {
+        const result = await CreateAccountModal.open({
+            size: "small",
+            label: "Create Account"
+        });
+
+        if (result) {
+            const event = new ShowToastEvent({
+                title: 'Success!',
+                message: 'Account created successfully.',
+                variant: 'success',
+                mode: 'dismissible'
+            });
+
+            this.dispatchEvent(event);
+            this._findAccounts();
+        }
+    }
 
     async _findAccounts() {
         this.showSpinner = true;
@@ -184,4 +231,14 @@ export default class AccountsListView extends LightningElement {
 
         this.dispatchEvent(event);
     }
+}
+
+const debounce = (callback, wait) => {
+  let timeoutId = null;
+  return (...args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      callback(...args);
+    }, wait);
+  };
 }

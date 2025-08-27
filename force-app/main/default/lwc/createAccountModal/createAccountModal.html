@@ -1,0 +1,35 @@
+<template>
+    <lightning-modal-header label={label}></lightning-modal-header>
+    <lightning-modal-body style="position: relative;">
+        <lightning-record-edit-form
+            object-api-name={objectApiName}
+            lwc:ref="form"
+            onsuccess={handleSuccess}
+            onload={handleLoad}
+        >
+            <lightning-input-field field-name={fields.NAME.fieldApiName}></lightning-input-field>
+            <lightning-input-field field-name={fields.PHONE.fieldApiName}></lightning-input-field>
+            <lightning-input-field field-name={fields.TYPE.fieldApiName}></lightning-input-field>
+            <lightning-input-field field-name={fields.INDUSTRY.fieldApiName}></lightning-input-field>
+        </lightning-record-edit-form>
+        <lightning-spinner
+            if:true={showSpinner}
+            alternative-text="Loading..."
+            size="medium"
+        ></lightning-spinner>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-button
+            label="Cancel"
+            class="slds-m-right_medium"
+            onclick={handleCancelClick}
+        ></lightning-button>
+            <lightning-button
+            label="Save"
+            variant="brand"
+            onclick={handleSaveClick}
+            disabled={showSpinner}
+            type="submit"
+        ></lightning-button>
+    </lightning-modal-footer>
+</template>
