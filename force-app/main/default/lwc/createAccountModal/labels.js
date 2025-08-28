@@ -1,0 +1,7 @@
+import ACCOUNT_SAVE_BUTTON_LABEL from "@salesforce/label/c.ACCOUNT_SAVE_BUTTON_LABEL";
+import ACCOUNT_CANCEL_BUTTON_LABEL from "@salesforce/label/c.ACCOUNT_CANCEL_BUTTON_LABEL";
+
+export default {
+    ACCOUNT_SAVE_BUTTON_LABEL,
+    ACCOUNT_CANCEL_BUTTON_LABEL
+}

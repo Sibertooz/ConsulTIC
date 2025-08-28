@@ -20,16 +20,15 @@
     </lightning-modal-body>
     <lightning-modal-footer>
         <lightning-button
-            label="Cancel"
+            label={labels.ACCOUNT_CANCEL_BUTTON_LABEL}
             class="slds-m-right_medium"
             onclick={handleCancelClick}
         ></lightning-button>
-            <lightning-button
-            label="Save"
+        <lightning-button
+            label={labels.ACCOUNT_SAVE_BUTTON_LABEL}
             variant="brand"
             onclick={handleSaveClick}
             disabled={showSpinner}
-            type="submit"
         ></lightning-button>
     </lightning-modal-footer>
 </template>

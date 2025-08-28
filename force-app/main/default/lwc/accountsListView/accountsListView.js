@@ -13,9 +13,12 @@ import ACCOUNT from "@salesforce/schema/Account";
 
 import FIELDS from "./fields";
 import CONSTANTS from "./constants";
+import LABELS from "./labels";
 export default class AccountsListView extends LightningElement {
     _accountDefaultRecordTypeId;
     _fields = {};
+
+    labels = LABELS;
 
     typeOptions = [];
     industryOptions = [];
@@ -169,7 +172,7 @@ export default class AccountsListView extends LightningElement {
             debounceSearch();
         } else if (searchTerm.length < 3) {
             this.searchTerm = null;
-            input.setCustomValidity("Input must be at least 3 characters long.");
+            input.setCustomValidity(LABELS.ACCOUNT_SHORT_SEARCH_TERM);
         } else {
             input.setCustomValidity("");
             input.reportValidity();
@@ -183,13 +186,13 @@ export default class AccountsListView extends LightningElement {
     async handleNewAccount() {
         const result = await CreateAccountModal.open({
             size: "small",
-            label: "Create Account"
+            label: LABELS.ACCOUNT_CREATE_MODAL_LABEL
         });
 
         if (result) {
             const event = new ShowToastEvent({
                 title: 'Success!',
-                message: 'Account created successfully.',
+                message: LABELS.ACCOUNT_CREATED_MESSAGE,
                 variant: 'success',
                 mode: 'dismissible'
             });

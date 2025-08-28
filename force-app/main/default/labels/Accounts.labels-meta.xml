@@ -8,4 +8,84 @@
         <shortDescription>Search params not specified</shortDescription>
         <value>Search params not specified</value>
     </labels>
+    <labels>
+        <fullName>ACCOUNT_SHORT_SEARCH_TERM</fullName>
+        <categories>Accounts,UI Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Short search term</shortDescription>
+        <value>Input must be at least 3 characters long.</value>
+    </labels>
+    <labels>
+        <fullName>ACCOUNT_CREATE_MODAL_LABEL</fullName>
+        <categories>Accounts,UI Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Create Account modal label</shortDescription>
+        <value>Create Account</value>
+    </labels>
+    <labels>
+        <fullName>ACCOUNT_CREATED_MESSAGE</fullName>
+        <categories>Accounts,UI Text</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account created message</shortDescription>
+        <value>Account created successfully.</value>
+    </labels>
+    <labels>
+        <fullName>ACCOUNT_NEW_BUTTON_LABEL</fullName>
+        <categories>Accounts,UI Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>ACCOUNT_FILTER_BY_TYPE_PLACEHOLDER</fullName>
+        <categories>Accounts,UI Text</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter by type</shortDescription>
+        <value>Filter by type</value>
+    </labels>
+    <labels>
+        <fullName>ACCOUNT_FILTER_BY_INDUSTRY_PLACEHOLDER</fullName>
+        <categories>Accounts,UI Text</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter by industry</shortDescription>
+        <value>Filter by industry</value>
+    </labels>
+    <labels>
+        <fullName>ACCOUNT_SEARCH_BY_NAME_PLACEHOLDER</fullName>
+        <categories>Accounts,UI Text</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Search by name</shortDescription>
+        <value>Search by name</value>
+    </labels>
+    <labels>
+        <fullName>ACCOUNT_NO_AVAILABLE_ACCOUNTS</fullName>
+        <categories>Accounts,UI Text</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No available accounts</shortDescription>
+        <value>No available accounts</value>
+    </labels>
+    <labels>
+        <fullName>ACCOUNT_SAVE_BUTTON_LABEL</fullName>
+        <categories>Accounts,UI Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>ACCOUNT_CANCEL_BUTTON_LABEL</fullName>
+        <categories>Accounts,UI Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
 </CustomLabels>

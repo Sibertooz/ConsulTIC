@@ -1,6 +1,6 @@
 <template>
     <lightning-card title="Accounts" icon-name="standard:account" variant="narrow">
-        <lightning-button label="New" slot="actions" onclick={handleNewAccount}></lightning-button>
+        <lightning-button label={labels.ACCOUNT_NEW_BUTTON_LABEL} slot="actions" onclick={handleNewAccount}></lightning-button>
         <div class="slds-p-horizontal_small">
             <div class="slds-clearfix">
                 <div class="slds-float_right">
@@ -8,7 +8,7 @@
                         <div class="slds-col slds-m-right_medium">
                             <lightning-combobox
                             options={typeOptions}
-                            placeholder="Filter by type"
+                            placeholder={labels.ACCOUNT_FILTER_BY_TYPE_PLACEHOLDER}
                             dropdown-alignment="right"
                             onchange={handleChangeType}
                             ></lightning-combobox>
@@ -16,7 +16,7 @@
                         <div class="slds-col">
                             <lightning-combobox
                             options={industryOptions}
-                            placeholder="Filter by industry"
+                            placeholder={labels.ACCOUNT_FILTER_BY_INDUSTRY_PLACEHOLDER}
                             dropdown-alignment="right"
                             onchange={handleChangeIndustry}
                             ></lightning-combobox>
@@ -26,7 +26,7 @@
                 <div class="slds-float_left">
                     <lightning-input
                     lwc:ref="search"
-                    placeholder="Search by name"
+                    placeholder={labels.ACCOUNT_SEARCH_BY_NAME_PLACEHOLDER}
                     onchange={handleSearch}
                     ></lightning-input>
                 </div>
@@ -42,7 +42,7 @@
                     <input
                         type="text"
                         class="no-data-message"
-                        value="No available accounts"
+                        value={labels.ACCOUNT_NO_AVAILABLE_ACCOUNTS}
                         disabled
                     />
                 </template>

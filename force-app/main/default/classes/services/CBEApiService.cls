@@ -16,11 +16,11 @@ public without sharing class CBEApiService {
 
     public List<CBECompanyWrapper.Company> searchCompanies(Map<String, String> params) {
         if (String.isBlank(endpoint)) {
-            throw new CBEApiServiceException('CBE auth settings not configured');
+            throw new CBEApiServiceException(System.Label.CBEAPI_ERROR_MISSING_AUTH_SETTINGS);
         }
 
         if (params == null || params.isEmpty()) {
-            throw new CBEApiServiceException('Params must not be empty');
+            throw new CBEApiServiceException(System.Label.CBEAPI_ERROR_MISSING_URL_PARAMS);
         }
 
         String url = CBEApiConstants.COMPANY_SEARCH_URL;
@@ -41,11 +41,11 @@ public without sharing class CBEApiService {
 
     public CBECompanyWrapper.Company getCompanyByBCE(String cbeNumber) {
         if (String.isBlank(endpoint)) {
-            throw new CBEApiServiceException('CBE auth settings not configured');
+            throw new CBEApiServiceException(System.Label.CBEAPI_ERROR_MISSING_AUTH_SETTINGS);
         }
 
         if (String.isBlank(cbeNumber)) {
-            throw new CBEApiServiceException('BCE number must not be empty');
+            throw new CBEApiServiceException(System.Label.CBEAPI_ERROR_MISSING_URL_PARAMS);
         }
 
         String url = CBEApiConstants.COMPANY_CBE_URL + cbeNumber;

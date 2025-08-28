@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>CBEAPI_ERROR_MISSING_AUTH_SETTINGS</fullName>
+        <categories>CBEAPI,UI Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Missing auth settings for CBE callout</shortDescription>
+        <value>Missing auth settings for CBE callout</value>
+    </labels>
+    <labels>
+        <fullName>CBEAPI_ERROR_MISSING_URL_PARAMS</fullName>
+        <categories>CBEAPI,UI Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Missing URL parameters.</shortDescription>
+        <value>Missing URL parameters.</value>
+    </labels>
+</CustomLabels>
